@@ -1,0 +1,11 @@
+- type: matrix
+  services:
+    - adddocker
+    - java8
+  steps:
+  - type: serial
+    steps:
+    - command: ./gradlew build -x buildDocker
+
+#- service: adddocker
+  #command: docker run busybox echo hello
