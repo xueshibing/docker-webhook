@@ -3,9 +3,10 @@
     - adddocker
     - java8
   steps:
-  - type: serial
-    steps:
-    - command: ./gradlew build -x buildDocker
+    tag: "^(master|staging|feature/.*)"
+    - type: serial
+      steps:
+      - command: ./gradlew build -x buildDocker
 
 #- service: adddocker
   #command: docker run busybox echo hello
