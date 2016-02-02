@@ -1,12 +1,17 @@
 - type: matrix
+  name: pushDocker
   services:
     - adddocker
     - java8
   steps:
     tag: "^(master|staging|feature/.*)"
     - type: serial
+      name: buildDocker
       steps:
-      - command: ./gradlew build -x buildDocker
+        - name: build
+          command: ./gradlew build -x test
+        - name: buildDocker
+          command: ./gradlew buildDocker
 
 #- service: adddocker
   #command: docker run busybox echo hello
