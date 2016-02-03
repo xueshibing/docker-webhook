@@ -1,8 +1,8 @@
 - type: matrix
   name: pushDocker
   services:
-    - adddocker
-    #- java8
+    #- adddocker
+    - java8
   steps:
   - name: buildDocker
     command: /app/bin/build.sh

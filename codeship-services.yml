@@ -1,14 +1,16 @@
-adddocker:
-  image: docker:dind
-  add_docker: true
-  volumes_from:
-    - data
+#adddocker:
+  #image: docker:dind
+  #add_docker: true
+  #volumes_from:
+    #- data
 java8:
   image: java:8
-  volumes_from:
-    - data
-
-data:
-  image: busybox
+  #volumes_from:
+    #- data
   volumes:
     - ./:/app
+
+#data:
+  #image: busybox
+  #volumes:
+    #- ./:/app
