@@ -2,14 +2,10 @@
   name: pushDocker
   services:
     - adddocker
-    - java8
+    #- java8
   steps:
-    - type: serial
-      steps:
-        - name: build
-          command: ./gradlew build -x test
-        - name: buildDocker
-          command: ./gradlew buildDocker
+  - name: buildDocker
+    command: /app/bin/build.sh
 
 #- service: adddocker
   #command: docker run busybox echo hello
