@@ -4,9 +4,7 @@
     - adddocker
     - java8
   steps:
-    tag: "^(master|staging|feature/.*)"
     - type: serial
-      name: buildDocker
       steps:
         - name: build
           command: ./gradlew build -x test
