@@ -9,13 +9,22 @@ buildscript {
 
 
 
+  apply plugin: 'java'
+   apply plugin: 'idea'
 
 configure(subprojects) {
   apply plugin: 'java'
+   apply plugin: 'idea'
     apply plugin: 'docker'
+  buildscript {
+
+    dependencies {
+      classpath files(project.file("build/main"))
+    }
+  }
 jar {
   manifest {
-    attributes 'Main-Class': 'test.Hello'
+    attributes 'Main-Class': 'com.Hello'
   }
 }
   task buildDocker(type: Docker) { //, dependsOn: ":${project.name}:bootRepackage") {
@@ -32,6 +41,11 @@ jar {
     doLast {
       println "================push image manually================"
         println "docker push $tag"
+    }
+  }
+  task runSimple(dependsOn: 'classes') {
+    doFirst() {
+      com.test1.Main.say('haah')
     }
   }
   }
